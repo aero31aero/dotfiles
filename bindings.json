@@ -1,0 +1,6 @@
+{
+	".tmux.conf": {
+		"target": "~/.tmux.conf",
+		"notes": "Clone the themes repository and change the path to it in the conf accordingly."
+	}
+}
