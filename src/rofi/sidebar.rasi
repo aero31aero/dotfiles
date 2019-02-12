@@ -1,0 +1,141 @@
+/**
+ * User: deadguy
+ * Copyright: deadguy
+ */
+
+configuration {
+	display-drun:    "Launch";
+	display-run:     "Execute";
+	display-window:  "Switch To";
+	display-combi:   "It's been a long time.";
+	show-icons:      true;
+	sidebar-mode:    true;
+}
+
+* {
+	background-color:            argb:880D0D0D;
+	background-color-notrans:    #2E3436;
+	text-color:                  #d3d7cf;
+	actbg:                       argb:880F4B5F;
+	selbg:                       #262626;
+	urgbg:                       #e53935;
+	winbg:			     #26c6da;
+	selfore:			     #26c6da;
+	trans:				argb:002E3436;
+
+	selected-normal-foreground:  @winbg;
+	normal-foreground:           @text-color;
+	selected-normal-background:  @actbg;
+	normal-background:           @trans;
+
+	selected-urgent-foreground:  @background-color-notrans;
+	urgent-foreground:           @text-color;
+	selected-urgent-background:  @urgbg;
+	urgent-background:           @background-color;
+
+	selected-active-foreground:  @selfore;
+	active-foreground:           @text-color;
+	selected-active-background:  @selbg;
+	active-background:           @actbg;
+
+	line-margin:                 0;
+	line-padding:                10;
+	separator-style:             "none";
+	hide-scrollbar:              "true";
+	margin:                      0;
+	padding:                     0;
+}
+
+window {
+	location:	 center;
+	anchor:		 center;
+	height:		 40%;
+	width:		 40%;
+	orientation: horizontal;
+	children:	 [mainbox];
+	opacity: 100%;
+	border-radius: 10px;
+	margin: 40px 40px;
+	font: "Ubuntu Mono 12";
+}
+
+mainbox {
+	spacing:  0.0em;
+	children: [ entry,listview,sidebar ];
+}
+
+button { padding: 5px 20px; }
+
+button selected {
+	background-color: @active-background;
+	text-color: #ffffff;
+	font: "Purisa 20";
+}
+
+inputbar {
+	padding: 5px;
+	spacing: 5px;
+}
+
+listview {
+	spacing: 0.0em;
+	dynamic: false;
+	cycle:   true;
+}
+
+element { padding: 10px; }
+
+entry {
+	expand:         false;
+	text-color:     @normal-foreground;
+	vertical-align: 1;
+	padding:        10px;
+	font: "Ubuntu 20";
+}
+
+element normal.normal {
+	background-color: @normal-background;
+	text-color:       @normal-foreground;
+}
+
+element normal.urgent {
+	background-color: @urgent-background;
+	text-color:       @urgent-foreground;
+}
+
+element normal.active {
+	background-color: @active-background;
+	text-color:       @active-foreground;
+}
+
+element selected.normal {
+	background-color: @selected-normal-background;
+	text-color:       @selected-normal-foreground;
+	border:           0 5px solid 0 0;
+	border-color:	    @active-background;
+}
+
+element selected.urgent {
+	background-color: @selected-urgent-background;
+	text-color:       @selected-urgent-foreground;
+}
+
+element selected.active {
+	background-color: @selected-active-background;
+	text-color:       @selected-active-foreground;
+}
+
+element alternate.normal {
+	background-color: @normal-background;
+	text-color:       @normal-foreground;
+}
+
+element alternate.urgent {
+	background-color: @urgent-background;
+	text-color:       @urgent-foreground;
+}
+
+element alternate.active {
+	background-color: @active-background;
+	text-color:       @active-foreground;
+}
